@@ -12,9 +12,9 @@ app.use(express.json({ limit: '10mb' }));
 
 // User information (you can modify these as needed)
 const USER_INFO = {
-    fullName: "john_doe",
-    email: "john@xyz.com",
-    rollNumber: "ABCD123"
+    fullName: "kalyanam_karthik",
+    email: "kalyanam.karthik2022@vitstudent.ac.in",
+    rollNumber: "22BEC1268"
 };
 
 // Helper function to generate user_id
@@ -129,47 +129,7 @@ app.post('/bfhl', (req, res) => {
     }
 });
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-    res.status(200).json({
-        status: 'OK',
-        message: 'API is running',
-        timestamp: new Date().toISOString()
-    });
-});
-
-// Root endpoint
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Bajaj API is running',
-        endpoints: {
-            'POST /bfhl': 'Process array data',
-            'GET /health': 'Health check'
-        }
-    });
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        is_success: false,
-        error: "Something went wrong!"
-    });
-});
-
-// 404 handler
-app.use('*', (req, res) => {
-    res.status(404).json({
-        is_success: false,
-        error: "Endpoint not found"
-    });
-});
-
 // Start server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    console.log(`API endpoint: http://localhost:${PORT}/bfhl`);
-});
+app.listen(PORT, () => {});
 
 module.exports = app;
